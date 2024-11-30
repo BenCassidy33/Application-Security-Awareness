@@ -1,7 +1,134 @@
-* {
-    font-family: 'Poppins';
+:root {
+    --bg-color: #000;
+    --text-color: #fff;
 }
 
-h1 {
+* {
+    font-family: 'RobotoMono Nerd Font', 'Poppins', monospace;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+@media (max-width: 428px) {
+    .header-node {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 600px) {
+    .header-node {
+        font-size: 24px;
+    }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 3px solid var(--text-color);
+    /*border-image: linear-gradient(35deg, red, blue) 30;*/
+    padding-bottom: 10px;
+
+    animation: 5s linear infinite gradient-animation;
+}
+
+.navbar>* {
+    display: flex;
+}
+
+.header-node {
+    margin-left: 7px;
+    margin-right: 7px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0);
+
+    transition: transform 300ms ease-out;
+}
+
+.header-node:hover {
+    transform: scale(1.1);
+}
+
+.large {
+    height: 99999px
+}
+
+.page-title {
+    text-align: center;
+    font-size: 74px;
+    margin-bottom: 50px;
+}
+
+.scroll-bounds {
+    /*border: 1px solid white;*/
+    height: 240vh;
+    margin-bottom: 0;
+}
+
+.content-container {
+    /*border: 1px solid blue;*/
+    display: flex;
+    position: relative;
+    top: 0;
+    height: 50vh;
+}
+
+.text-content {
+    /*border: 1px solid yellow;*/
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 35px;
+}
+
+.content-container img {
+    width: 60%;
+    object-fit: contain;
+}
+
+.test-block {
+    display: none;
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    position: absolute;
+    left: 50px;
+    z-index: 9999;
+}
+
+.under-scroll {
+    margin-top: 130vh;
+}
+
+.image-parallax-container {
+    border: 1px solid white;
+    margin-top: 10vh;
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-parallax-container img {
+    width: 100%;
+    transform: scale(0.4);
+    z-index: 0;
+}
+
+#parallax-image {
+    transition: transform 0.3 ease-in-out;
+}
+
+.more-text {
+    position: absolute;
+    margin-left: 10px;
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: 1500px;
     color: black;
+    font-size: 64px;
+    width: 50%;
+    z-index: 99999;
 }

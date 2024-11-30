@@ -22,11 +22,8 @@ darkModeToggleButton.onclick = () => {
 }
 
 function addTestBlock(top, left) {
-    let block = document.getElementById('test-block')
-
-    block.style.display = "block"
-    block.style.top = `${top}px`
-    block.style.left = `${left ? left : window.innerWidth / 2}px`
+    document.getElementById("test-block").style.top = `${top}px`
+    document.getElementById("test-block").style.left = `${left ? left : window.innerWidth / 2}px`
 }
 
 
@@ -36,6 +33,8 @@ window.addEventListener('scroll', () => {
     let scrollPos = window.scrollY;
     let contentContainer = document.getElementById("content-image")
     let scrollBounds = document.getElementById("scroll-bounds");
+
+    //let bottomBound = window.scrollY + scrollBounds.getBoundingClientRect().top
     let bottomBound = scrollBounds.offsetTop + scrollBounds.clientHeight
 
     contentContainer.style.transform = `translateY(${Math.min(scrollPos, bottomBound)}px)`
@@ -47,15 +46,18 @@ window.addEventListener('scroll', () => {
 
     let image = document.getElementById("parallax-img")
     let imageCenter = image.offsetTop + image.clientHeight / 2
+    //console.log(scrollPos, imageCenter)
 
     if (scrollPos < imageCenter) return;
+
+    //console.log(scrollPos, imageCenter)
+
+    //let translateValue = (scrollPos - imageCenter) * 0.75
+    //let scaleValue = Math.min(0.4 + (translateValue) * 0.001, 1.5)
+
     let dy = (scrollPos - imageCenter)
-    let ds = 0.4 + dy * 0.0005
+    image.style.transform = `translateY(${dy})`
     console.log(dy)
 
-    image.style.transform = `translateY(${dy}px) scale(${Math.min(1, ds)})`
-
-    if (dy > 5000) {
-        image.style.transform = `translateY(5000px)`
-    }
+    //image.style.transform = `scale(${Math.min(scaleValue, 1.5)}) translateY(${translateValue}px)`
 })

@@ -9,9 +9,13 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="scripts/parallax.js">
+    <script src="scripts/lib/parallax.js" type="module" defer>
     </script>
-    <script src="scripts/lib/main.js" type="module" defer>
+    <script src="scripts/constants.js" type="module" defer>
+    </script>
+    <script src="scripts/helpers.js" type="module" defer>
+    </script>
+    <script src="scripts/main.js" type="module" defer>
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +26,54 @@
 </head>
 
 <body>
-    <h1>test</h1>
+    <header class="navbar">
+        <div id="left">
+            <div class="header-node">Home</div>
+            <div class="header-node">About</div>
+        </div>
+        <div id="right">
+            <div class="header-node">Show Your Support!</div>
+            <div class="header-node" id="lightDarkToggleButton">Light/Dark Toggle</div>
+        </div>
+    </header>
+
+    <div id="test-block" class="test-block"></div>
+
+    <!--<div class="seperator"></div>-->
+
+    <br>
+
+    <h1 class="page-title">Application Security in The Modern Age</h1>
+
+    <div id="scroll-bounds" class="scroll-bounds">
+        <div id="content-container" class="content-container">
+            <div id="text-content" class="text-content">
+                <h1>How Can this Benifit My Customer?</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+                    facere iusto doloribus rem corrupti perferendis sit illo ipsam magnam, nesciunt tenetur et qui amet
+                    fugit. In error commodi cum fugit.</p>
+            </div>
+            <img id="content-image"
+                src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="">
+        </div>
+    </div>
+
+
+    <h1 class="page-title under-scroll">Reimagine Internet Saftey</h1>
+    <div id="scroll-into-image-container" class="image-parallax-container">
+        <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt=""
+            id="parallax-img">
+    </div>
+
+    <div class="more-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias facere deleniti eos quibusdam recusandae quod
+        minima sed perferendis in, saepe laboriosam officiis? Porro animi maxime accusantium harum doloribus soluta
+        consectetur.
+    </div>
+
+
+    <div class="large"></div>
+
 </body>
 
 </html>

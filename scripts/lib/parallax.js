@@ -11,7 +11,7 @@ const objectAssign = require('object-assign')
 
 const helpers = {
   propertyCache: {},
-  vendors: [null, ['-webkit-','webkit'], ['-moz-','Moz'], ['-o-','O'], ['-ms-','ms']],
+  vendors: [null, ['-webkit-', 'webkit'], ['-moz-', 'Moz'], ['-o-', 'O'], ['-ms-', 'ms']],
 
   clamp(value, min, max) {
     return min < max
@@ -20,7 +20,7 @@ const helpers = {
   },
 
   data(element, name) {
-    return helpers.deserialize(element.getAttribute('data-'+name))
+    return helpers.deserialize(element.getAttribute('data-' + name))
   },
 
   deserialize(value) {
@@ -51,11 +51,11 @@ const helpers = {
 
   transformSupport(value) {
     let element = document.createElement('div'),
-        propertySupport = false,
-        propertyValue = null,
-        featureSupport = false,
-        cssProperty = null,
-        jsProperty = null
+      propertySupport = false,
+      propertyValue = null,
+      featureSupport = false,
+      cssProperty = null,
+      jsProperty = null
     for (let i = 0, l = helpers.vendors.length; i < l; i++) {
       if (helpers.vendors[i] !== null) {
         cssProperty = helpers.vendors[i][0] + 'transform'
@@ -69,16 +69,16 @@ const helpers = {
         break
       }
     }
-    switch(value) {
+    switch (value) {
       case '2D':
         featureSupport = propertySupport
         break
       case '3D':
         if (propertySupport) {
           let body = document.body || document.createElement('body'),
-              documentElement = document.documentElement,
-              documentOverflow = documentElement.style.overflow,
-              isCreatedBody = false
+            documentElement = document.documentElement,
+            documentOverflow = documentElement.style.overflow,
+            isCreatedBody = false
 
           if (!document.body) {
             isCreatedBody = true
@@ -95,7 +95,7 @@ const helpers = {
           documentElement.style.overflow = documentOverflow
           body.removeChild(element)
 
-          if ( isCreatedBody ) {
+          if (isCreatedBody) {
             body.removeAttribute('style')
             body.parentNode.removeChild(body)
           }
@@ -126,31 +126,31 @@ const helpers = {
 }
 
 const MAGIC_NUMBER = 30,
-      DEFAULTS = {
-        relativeInput: false,
-        clipRelativeInput: false,
-        inputElement: null,
-        hoverOnly: false,
-        calibrationThreshold: 100,
-        calibrationDelay: 500,
-        supportDelay: 500,
-        calibrateX: false,
-        calibrateY: true,
-        invertX: true,
-        invertY: true,
-        limitX: false,
-        limitY: false,
-        scalarX: 10.0,
-        scalarY: 10.0,
-        frictionX: 0.1,
-        frictionY: 0.1,
-        originX: 0.5,
-        originY: 0.5,
-        pointerEvents: false,
-        precision: 1,
-        onReady: null,
-        selector: null
-      }
+  DEFAULTS = {
+    relativeInput: false,
+    clipRelativeInput: false,
+    inputElement: null,
+    hoverOnly: false,
+    calibrationThreshold: 100,
+    calibrationDelay: 500,
+    supportDelay: 500,
+    calibrateX: false,
+    calibrateY: true,
+    invertX: true,
+    invertY: true,
+    limitX: false,
+    limitY: false,
+    scalarX: 10.0,
+    scalarY: 10.0,
+    frictionX: 0.1,
+    frictionY: 0.1,
+    originX: 0.5,
+    originY: 0.5,
+    pointerEvents: false,
+    precision: 1,
+    onReady: null,
+    selector: null
+  }
 
 class Parallax {
   constructor(element, options) {
@@ -187,7 +187,7 @@ class Parallax {
 
     objectAssign(this, DEFAULTS, data, options)
 
-    if(!this.inputElement) {
+    if (!this.inputElement) {
       this.inputElement = this.element
     }
 
@@ -264,7 +264,7 @@ class Parallax {
     }
 
     // Pointer events
-    if(!this.pointerEvents) {
+    if (!this.pointerEvents) {
       this.element.style.pointerEvents = 'none'
     }
 
@@ -276,19 +276,19 @@ class Parallax {
   }
 
   doReadyCallback() {
-    if(this.onReady) {
+    if (this.onReady) {
       this.onReady()
     }
   }
 
   updateLayers() {
-    if(this.selector) {
+    if (this.selector) {
       this.layers = this.element.querySelectorAll(this.selector)
     } else {
       this.layers = this.element.children
     }
 
-    if(!this.layers.length) {
+    if (!this.layers.length) {
       console.warn('ParallaxJS: Your scene does not have any layers.')
     }
 
@@ -462,7 +462,7 @@ class Parallax {
   onAnimationFrame() {
     this.updateBounds()
     let calibratedInputX = this.inputX - this.calibrationX,
-        calibratedInputY = this.inputY - this.calibrationY
+      calibratedInputY = this.inputY - this.calibrationY
     if ((Math.abs(calibratedInputX) > this.calibrationThreshold) || (Math.abs(calibratedInputY) > this.calibrationThreshold)) {
       this.queueCalibration(0)
     }
@@ -485,19 +485,19 @@ class Parallax {
     this.velocityY += (this.motionY - this.velocityY) * this.frictionY
     for (let index = 0; index < this.layers.length; index++) {
       let layer = this.layers[index],
-          depthX = this.depthsX[index],
-          depthY = this.depthsY[index],
-          xOffset = this.velocityX * (depthX * (this.invertX ? -1 : 1)),
-          yOffset = this.velocityY * (depthY * (this.invertY ? -1 : 1))
+        depthX = this.depthsX[index],
+        depthY = this.depthsY[index],
+        xOffset = this.velocityX * (depthX * (this.invertX ? -1 : 1)),
+        yOffset = this.velocityY * (depthY * (this.invertY ? -1 : 1))
       this.setPosition(layer, xOffset, yOffset)
     }
     this.raf = rqAnFr(this.onAnimationFrame)
   }
 
-  rotate(beta, gamma){
+  rotate(beta, gamma) {
     // Extract Rotation
     let x = (beta || 0) / MAGIC_NUMBER, //  -90 :: 90
-        y = (gamma || 0) / MAGIC_NUMBER // -180 :: 180
+      y = (gamma || 0) / MAGIC_NUMBER // -180 :: 180
 
     // Detect Orientation Change
     let portrait = this.windowHeight > this.windowWidth
@@ -536,16 +536,16 @@ class Parallax {
 
   onMouseMove(event) {
     let clientX = event.clientX,
-        clientY = event.clientY
+      clientY = event.clientY
 
     // reset input to center if hoverOnly is set and we're not hovering the element
-    if(this.hoverOnly &&
+    if (this.hoverOnly &&
       ((clientX < this.elementPositionX || clientX > this.elementPositionX + this.elementWidth) ||
-      (clientY < this.elementPositionY || clientY > this.elementPositionY + this.elementHeight))) {
-        this.inputX = 0
-        this.inputY = 0
-        return
-      }
+        (clientY < this.elementPositionY || clientY > this.elementPositionY + this.elementHeight))) {
+      this.inputX = 0
+      this.inputY = 0
+      return
+    }
 
     if (this.relativeInput) {
       // Clip mouse coordinates inside element bounds.
@@ -556,13 +556,13 @@ class Parallax {
         clientY = Math.min(clientY, this.elementPositionY + this.elementHeight)
       }
       // Calculate input relative to the element.
-      if(this.elementRangeX && this.elementRangeY) {
+      if (this.elementRangeX && this.elementRangeY) {
         this.inputX = (clientX - this.elementPositionX - this.elementCenterX) / this.elementRangeX
         this.inputY = (clientY - this.elementPositionY - this.elementCenterY) / this.elementRangeY
       }
     } else {
       // Calculate input relative to the window.
-      if(this.windowRadiusX && this.windowRadiusY) {
+      if (this.windowRadiusX && this.windowRadiusY) {
         this.inputX = (clientX - this.windowCenterX) / this.windowRadiusX
         this.inputY = (clientY - this.windowCenterY) / this.windowRadiusY
       }
