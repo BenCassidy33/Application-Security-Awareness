@@ -23,6 +23,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -33,37 +39,45 @@
     </div>
 
 
-    <header class="navbar">
-        <div id="left">
-            <div class="header-node">Home</div>
-            <div class="header-node">About</div>
+    <header class="navbar" id="navbar">
+        <div class="nav-left">
+            <div class="header-node" data-scroll-to="top-offset">Home</div>
         </div>
-        <div id="right">
-            <div class="header-node" id="lightDarkToggleButton">Light/Dark Toggle</div>
-            <div class="header-node">Show Your Support!</div>
+
+        <div id="center" class="nav-center">
+            <div class="header-node" data-scroll-to="page-title">
+                Importance</div>
+            <div class="header-node" data-scroll-to="content">History</div>
+            <div class="header-node" data-scroll-to="common-scroll-to">How Common?</div>
+            <div class="header-node" data-scroll-to="form-container">Show Your Support!</div>
+        </div>
+
+        <div class="nav-right">
+            <button class="header-node" id="lightDarkToggleButton" class="toggle-button">
+                <img class="toggle-button-img" id="toggle-button-img" src="public/moon.svg" alt="">
+            </button>
         </div>
     </header>
 
+    <div class="top-offset" id="top-offset"></div>
 
-    <br>
-
-    <h1 class="page-title">Application Security in The Modern Age</h1>
+    <h1 class="page-title" id="page-title">Preventing Security Vunerabalites</h1>
 
     <div class="content">
         <div class="head-content">
             <div class="left">
-                <h1>Add Text Here</h1>
+                <h2>What is the Importance of Preventing Security Vunerabalites?</h2>
                 <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium voluptates rem odit omnis
-                    accusamus ab
-                    quos error fugit, consectetur officia, eaque libero perferendis facere recusandae? Architecto at
-                    minima
-                    facere consectetur!
+                    In today’s increasingly interconnected world, consumer applications play a pivotal role in daily
+                    life, handling everything from communication and banking to healthcare and entertainment. With this
+                    ubiquity comes the critical responsibility of ensuring the security of these applications to protect
+                    sensitive user data and maintain trust.
                 </p>
             </div>
             <div class="right">
                 <img class="head-content-img"
-                    src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="">
+                    src="https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/4085079/cover_image/regular_1708x683/cover-Redesign-WebSecurityVulnerabilities-Luke_Newsletter-e31f3594001e90f0d6cedf8014293162.png"
+                    alt="">
             </div>
 
         </div>
@@ -71,65 +85,165 @@
 
     <div class="seperator"></div>
 
-    <div class="content">
+    <div class="content" id="content">
         <div id="scroll-bounds" class="scroll-bounds">
-            <!--<h1>List of Exploited Vunerabalites</h1>-->
+            <h1 class="past-content-title">Vunerabalites Found In The Past</h1>
             <div id="content-container" class="content-container">
                 <div id="text-content" class="text-content">
-
                     <div class="talking-point">
-                        <h1>Log4j</h1>
-                        <p>The Log4j vurnabilty that was found in the Apachie Logging Framework that was used by servers
-                            to keep track of internet trafic across billions of devices.</p>
+                        <div class="talking-point-left">
+                            <h2>Microsoft Office Memory Corruption Vulnerability</h2>
+                            <h3>
+                                Discovered: November 14th, 2017
+                                <br>
+                                Patched: November 28th, 2017
+                                <br>
+                                CVE Entry: <a
+                                    href="https://nvd.nist.gov/vuln/detail/cve-2017-11882">CVE-2017-11882</a><br>
+                                <a href="https://support.microsoft.com/en-us/topic/description-of-the-security-update-for-2007-microsoft-office-suite-november-28-2017-7f275c8d-14df-8be5-3f9c-b3761bf9681d"
+                                    style="display: none;">
+                                    Patch
+                                    Information
+                                </a>
+                            </h3>
+                            <p>
+                                Microsoft Office 2007 Service Pack 3, Microsoft Office 2010 Service Pack 2, Microsoft
+                                Office 2013 Service Pack 1, and Microsoft Office 2016 allow an attacker to run arbitrary
+                                code in the context of the current user by failing to properly handle objects in memory,
+                                aka "Microsoft Office Memory Corruption Vulnerability".
+                            </p>
+                        </div>
+                        <div class="talking-point-right">
+                            <img src="https://pentest-tools.com/_vercel/image?url=https:%2F%2Fcontent.pentest-tools.com%2Fassets%2Fcontent%2Fmicrosoft-word-rce-vuln-cve-2023-21716.webp&w=1536&q=100"
+                                alt="" class="talking-point-img">
+                        </div>
                     </div>
 
                     <div class="talking-point">
-                        <h1>Log4Shell</h1>
-                        <p>The Log4j vurnabilty that was found in the Apachie Logging Framework that was used by servers
-                            to keep track of internet trafic across billions of devices.</p>
+                        <div class="talking-point-left">
+                            <h2>SolarWinds Hack and FireEye Breach</h2>
+                            <h3>
+                                Discovered: December 8th, 2020
+                                <br>
+                                Patched: December 13th, 2020
+                                <br>
+                                CVE Entry: <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-10148">CVE-2020-10148</a>
+                            </h3>
+                            <p>
+                                The SolarWinds Orion API is vulnerable to an authentication bypass that could allow a
+                                remote attacker to execute API commands. This vulnerability could allow a remote
+                                attacker to bypass authentication and execute API commands which may result in a
+                                compromise of the SolarWinds instance. SolarWinds Orion Platform versions 2019.4 HF 5,
+                                2020.2 with no hotfix installed, and 2020.2 HF 1 are affected.
+                            </p>
+                        </div>
+                        <div class="talking-point-right">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0VzZn08jEnljDfPfcUh5Tqbz7mR4uj18sy1mAIfFmACIUq599FgRGSySusn7wcsfxVm3jm2-DEGrLeKUYeSJsXVEOz-9_Hq2IOHZwA3j4y-0FC77jjoXomconNgs94Fn2GT7CBQEqxqM/s728-rw-e365/solarwinds.jpg"
+                                alt="" class="talking-point-img">
+                        </div>
                     </div>
+
+
+                    <div class="talking-point">
+                        <div class="talking-point-left">
+                            <h2>Log4Shell/Log4J</h2>
+                            <h3>Discovered: November 24th, 2021<br> Patched: December 6th, 2021<br>CVE Entry: <a
+                                    href="https://nvd.nist.gov/vuln/detail/cve-2021-44228">CVE-2021-44228</a></h3>
+                            <p>
+                                Apache Log4j2 2.0-beta9 through 2.15.0 (excluding security releases 2.12.2, 2.12.3, and
+                                2.3.1) JNDI features used in configuration, log messages, and parameters do not protect
+                                against attacker controlled LDAP and other JNDI related endpoints. An attacker who can
+                                control log messages or log message parameters can execute arbitrary code loaded from
+                                LDAP servers when message lookup substitution is enabled. From log4j 2.15.0, this
+                                behavior has been disabled by default. From version 2.16.0 (along with 2.12.2, 2.12.3,
+                                and 2.3.1), this functionality has been completely removed. Note that this vulnerability
+                                is specific to log4j-core and does not affect log4net, log4cxx, or other Apache Logging
+                                Services projects.
+                            </p>
+                        </div>
+                        <div class="talking-point-right">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRggoGMLvz9i56eu4ly0gEjTxS-2L-6ecp10w&s"
+                                alt="" class="talking-point-img">
+                        </div>
+                    </div>
+
+
                 </div>
 
-                <div id="img-container" class="img-container">
-                    <img id="content-image" src="https://fossa.com/blog/content/images/size/w800h400/2021/12/log4j.png"
-                        alt="">
-                </div>
             </div>
         </div>
 
 
         <div class="seperator"></div>
 
-        <h1 class="page-title under-scroll">Reimagine Internet Saftey</h1>
+        <h1 class="page-title-two under-scroll" id="common-scroll-to">How Common Are Security Vulnerabilities Really?
+        </h1>
         <div id="scroll-into-image-container" class="image-parallax-container">
-            <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt=""
+            <img src="https://www.aspirets.com/wp-content/uploads/2023/11/common-security-vulnerabilities.png" alt=""
                 id="parallax-img">
         </div>
 
         <div class="overlay-text">
-
             <div class="more-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias facere deleniti eos quibusdam
-                recusandae
-                quod
-                minima sed perferendis in, saepe laboriosam officiis? Porro animi maxime accusantium harum doloribus
-                soluta
-                consectetur.
-            </div>
+                Security vulnerabilities are more common than many realize, with thousands of new flaws reported each
+                year. The increasing complexity of modern software, reliance on third-party libraries, and the growth of
+                cloud computing and IoT devices have all expanded the potential attack surface. While some
+                vulnerabilities are quickly patched, others linger for long periods, especially in legacy systems.
+                Factors such as human error, outdated coding practices, and the ever-evolving methods of cybercriminals
+                make vulnerabilities a persistent challenge. This highlights the importance of continuous security
+                efforts, regular updates, and proactive threat detection to reduce the risks posed by these
+                vulnerabilities.
 
-            <div class="even-more-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias facere deleniti eos quibusdam
-                recusandae
-                quod
-                minima sed perferendis in, saepe laboriosam officiis? Porro animi maxime accusantium harum doloribus
-                soluta
-                consectetur.
             </div>
-
-            <h1 class="even-more-text-head">Something Insighful Here.</h1>
         </div>
-        <div id="parallax-range"></div>
 
+
+        <div class="form-container" id="form-container">
+            <div class="form-left">
+                <h1>Show Your Support for Software Security!</h1>
+                <form action="" class="signature-form" id="sign-up-form" class="sign-up-form">
+                    <div class="form-row">
+                        <h3>Enter Your Name!</h3>
+                        <label for="fname-input">First Name: </label>
+                        <input type="text" placeholder="First Name" id="fname-input" name="fname" required>
+                        <label for="lname-input">Last Name: </label>
+                        <input type="text" placeholder="Last Name" id="lname-input" name="lname" required>
+                    </div>
+
+                    <div class="form-row">
+                        <h3>Enter Your Hometown!</h3>
+                        <label for="hometown-input">Hometown: </label>
+                        <input type="text" placeholder="City, State" id="hometown-input" name="hometown-input" required>
+                    </div>
+
+                    <div class="form-row">
+                        <h3>Enter Your Email!</h3>
+                        <label for="email">Email: </label>
+                        <input type="email" placeholder="john.doe@email.com" id="email-input" name="email" required>
+                    </div>
+
+                    <button type="submit" class="submit-button">Sign Up!</button>
+                </form>
+            </div>
+
+            <div class="left-right-sep"></div>
+
+            <div class="form-right">
+                <div id="signatures" class="signatures">
+                    <h1>See Our Supporters!</h1>
+                    <div id="supporters" class="supporters"></div>
+                </div>
+            </div>
+        </div>
+        <div class="form-modal-container" id="form-modal-container">
+            <div id="form-modal" class="form-modal">
+                <div id="close-modal" class="close-modal">&times;</div>
+                <div id="modal-content" class="modal-content">
+                    <h1 class="modal-thanks">Thank You for Showing Your Support!</h1>
+                    <div id="message-box" class="message-box"></div>
+                </div>
+            </div>
+        </div>
         <!--<div class="under-parallax">-->
         <!--    <img src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png" alt="">-->
         <!--</div>-->

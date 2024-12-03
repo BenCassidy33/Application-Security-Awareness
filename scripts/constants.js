@@ -4,7 +4,12 @@ export const constants = {
 
   selectors: {
     background: "--bg-color",
-    text_color: "--text-color"
+    text_color: "--text-color",
+  },
+
+  images: {
+    light: "./public/sun.svg",
+    dark: "./public/moon.svg"
   }
 }
 
