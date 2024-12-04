@@ -119,11 +119,11 @@ navbar.addEventListener("mouseover", function() {
     navbar.style.opacity = 1
 })
 
-navbar.addEventListener("mouseleave", function() {
-    setInterval(() => {
-        navbar.style.opacity = 1
-    }, 3000)
-})
+//navbar.addEventListener("mouseleave", function() {
+//    setInterval(() => {
+//        navbar.style.opacity = 0
+//    }, 3000)
+//})
 
 window.addEventListener('scroll', function() {
     if (window.scrollY > 1000) {
