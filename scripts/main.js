@@ -78,7 +78,7 @@ window.addEventListener('scroll', function() {
     for (const talkingPoint of talkingPoints) {
         let elemHeight = talkingPoint.clientHeight
         let elemCenter = talkingPoint.offsetTop + elemHeight / 2
-        let maxRange = elemHeight * 2
+        let maxRange = elemHeight * 1.5
 
         const distance = Math.abs(windowCenter.y - elemCenter);
         if (distance <= maxRange) {
@@ -96,6 +96,7 @@ window.addEventListener('scroll', function() {
 })
 
 
+let imageOverlayText = document.getElementById('img-overlay-text')
 
 window.addEventListener('scroll', () => {
     let scrollPos = windowCenter.y;
@@ -105,10 +106,12 @@ window.addEventListener('scroll', () => {
     let dy = (scrollPos - imageCenter)
     let ds = 0.4 + dy * 0.0005
 
-    image.style.transform = `translateY(${dy}px) scale(${Math.min(1.5, ds)})`
+    image.style.transform = `translateY(${dy}px) scale(${Math.min(1, ds)})`
+    imageOverlayText.style.transform = `translateY(${dy}px)`
 
-    if (dy > 3000) {
-        image.style.transform = `translateY(3000px) scale(1.5)`
+    if (dy > 2000) {
+        image.style.transform = `translateY(2000px) scale(1)`
+        imageOverlayText.style.transform = `translateY(2000px)`
     }
 })
 

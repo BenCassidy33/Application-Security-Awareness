@@ -218,7 +218,7 @@ h2 {
 }
 
 .image-parallax-container {
-    margin-top: 10vh;
+    /*margin-top: 10vh;*/
     width: 100%;
     aspect-ratio: 16/9;
     display: flex;
@@ -293,7 +293,7 @@ h2 {
 
 .talking-point p {
     font-weight: bold;
-    font-size: 20px
+    font-size: 1.5vh
 }
 
 .talking-point h1 {
@@ -306,18 +306,11 @@ h2 {
     width: 100%;
 }
 
-.head-content {
-    display: flex;
-    flex-direction: row;
-    height: auto;
-    margin-top: 10vh;
-}
-
 
 .left {
     width: 50%;
     margin-right: 7vw;
-    font-size: 24px;
+    font-size: 2vh;
     align-content: center;
     /*border: 1px solid white;*/
     /*display: flex;*/
@@ -325,13 +318,18 @@ h2 {
     /*justify-content: center;*/
 }
 
+.head-content {
+    display: flex;
+}
+
+
 .head-content-title,
 .talking-point-title {
-    font-size: 36px;
+    font-size: 3.5vh;
 }
 
 .talking-point-info {
-    font-size: 24px;
+    font-size: 2vh;
 }
 
 .right {
@@ -457,11 +455,11 @@ h2 {
 
 .submit-button {
     margin-top: 30px;
-    border: 1px gray;
+    border: 1px lightgray;
     border-radius: 25px;
     padding: 15px;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 3vh;
 }
 
 .signatures {
@@ -483,11 +481,10 @@ h2 {
     text-align: center;
 }
 
-
-
 .more-text {
     width: 30vw;
-    margin-top: 1970px;
+    /*margin-top: 1970px;*/
+    /*margin-top: 25%;*/
     /*margin-top: 130vh;*/
     font-size: 2vh;
     color: white;
